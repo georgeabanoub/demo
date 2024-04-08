@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.demo.readService.ReadFromDB;
-import com.example.demo.models.ActorsModel;
+import com.example.demo.entity.Actors;
+import com.example.demo.readServices.ReadFromDB;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -22,10 +22,11 @@ public class ReadController {
 	@Autowired
 	private ReadFromDB readAll;
 	
-	@GetMapping("/readAll")
-	
-	public ResponseEntity<List<ActorsModel>> getNames(){
-		return new ResponseEntity<List<ActorsModel>>(readAll.nameList(), HttpStatus.OK);
+	@GetMapping("/readAllNames")
+	public ResponseEntity<List<Actors>> getNames(){
+		List<Actors> namesList = readAll.getAllNames();
+		
+		return new ResponseEntity<List<Actors>>(namesList, HttpStatus.OK);
 		
 	}
 
