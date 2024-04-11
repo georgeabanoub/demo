@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Actors;
-import com.example.demo.repository.ActorNameRepo;
+import com.example.demo.repo.ActorNameRepo;
 
 import java.util.List;
 
